@@ -1,6 +1,12 @@
 package dmacc.bean;
 
+
+import javax.persistence.*;
+
+@Entity
 public class Vacation {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String town;
 	private String state;
@@ -19,6 +25,13 @@ public class Vacation {
 		this.miles = miles;
 	}
 	
+	
+	public Vacation(String town, String state, double miles) {
+		super();
+		this.town = town;
+		this.state = state;
+		this.miles = miles;
+	}
 	//getters and setters
 	public int getId() {
 		return id;
@@ -43,6 +56,10 @@ public class Vacation {
 	}
 	public void setMiles(double miles) {
 		this.miles = miles;
+	}
+	@Override
+	public String toString() {
+		return "Vacation [id = " + id + ", Town = " + town + ", State = " + state + ", Miles = " + miles + "]";
 	}
 	
 	
